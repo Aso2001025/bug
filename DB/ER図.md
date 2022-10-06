@@ -95,11 +95,11 @@ recipe     ||-r-|{    recipe_datail
 recipe     ||-u-|{    recipe_material
 recipe     }o-r-||    category
 user       ||-r-o{    comment
-user       ||-r-o{    keep
-user       ||-r-o|    good
+user       ||---o{    keep
+user       ||---o|    good
 recipe     ||-l-o{    comment
-recipe     ||-l-o{    keep
-recipe     ||-l-o{    good
+recipe     ||---o{    keep
+recipe     ||---o{    good
 
 @enduml
 ```
