@@ -90,16 +90,16 @@ package "ECサイト" as target_system {
     
   }
   
-user       ||-r-o{    recipe
-recipe     ||-r-|{     recipe_datail
-recipe     ||-u-|{      recipe_material
-recipe     }o---||     category
-user       ||-d-o{     comment
-user       ||-d-o{    keep
-user       ||-d-o|     good
-recipe     ||-d-o{    comment
-recipe     ||-d-o{    keep
-recipe     ||-d-o{    good
+user       ||---o{    recipe
+recipe     ||-r-|{    recipe_datail
+recipe     ||-u-|{    recipe_material
+recipe     }o-r-||    category
+user       ||-r-o{    comment
+user       ||-r-o{    keep
+user       ||-r-o|    good
+recipe     ||-l-o{    comment
+recipe     ||-l-o{    keep
+recipe     ||-l-o{    good
 
 @enduml
 ```
