@@ -91,7 +91,7 @@ package "ECサイト" as target_system {
   }
   
 user       ||-r-o{    recipe
-recipe     ||-r-|{    recipe_datail
+recipe     ||-r-|{    recipe_detail
 recipe     ||-u-|{    recipe_material
 recipe     }o---||    category
 user       ||-r-o{    comment
