@@ -34,6 +34,7 @@ package "ECサイト" as target_system {
         recipe_naem
         recipe_image
         # category_id [FK]
+        time
         processed_flag
         good
         browes
