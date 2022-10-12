@@ -22,7 +22,8 @@ package "ECサイト" as target_system {
         icon
         mail
         password
-        image_flag
+        lebel
+        birthday
         reg_date
     }
     
