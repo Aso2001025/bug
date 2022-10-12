@@ -48,12 +48,12 @@ package "ECサイト" as target_system {
         amount
     }
     
-    entity "レシピ詳細" as recipe_datail <recipe_datail> <<T,TRANSACTION_MARK_COLOR>> {
+    entity "レシピ詳細" as recipe_detail <recipe_detail> <<T,TRANSACTION_MARK_COLOR>> {
         + datail_id [PK]
         --
         # recipe_id [FK]
-        datail_image
-        datail_text
+        detail_image
+        detail_text
     }
     
      entity "カテゴリ" as category <category> <<T,TRANSACTION_MARK_COLOR>> {
