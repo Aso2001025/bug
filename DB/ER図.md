@@ -106,7 +106,7 @@ user       ||-r-o{    recipe
 recipe     ||-r-|{    recipe_detail
 recipe     ||-u-|{    recipe_material
 recipe     }o---||    recipe_tag
-recipe_tag }o-r-||    tag
+recipe_tag }o---||    tag
 user       ||-r-o{    comment
 user       ||---o{    keep
 user       ||---o|    good
