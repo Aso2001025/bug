@@ -61,10 +61,17 @@ package "ECサイト" as target_system {
         detail_text
     }
     
-     entity "カテゴリ" as category <category> <<T,TRANSACTION_MARK_COLOR>> {
-        + category_id [PK]
+     entity "タグ" as tag <tag> <<T,TRANSACTION_MARK_COLOR>> {
+        + tag_id [PK]
         --
-        category_name
+        tag_name
+        
+    }
+    
+     entity "レシピタグ" as recipe_tag <recipe_tag> <<T,TRANSACTION_MARK_COLOR>> {
+        + recipe_id [PK][FK]
+        + tag_id [PK][FK]
+        --
         
     }
     
@@ -98,7 +105,8 @@ package "ECサイト" as target_system {
 user       ||-r-o{    recipe
 recipe     ||-r-|{    recipe_detail
 recipe     ||-u-|{    recipe_material
-recipe     }o---||    category
+recipe     }o---||    recipe_tag
+tag        }o---||    recipe_tag
 user       ||-r-o{    comment
 user       ||---o{    keep
 user       ||---o|    good
