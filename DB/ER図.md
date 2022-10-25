@@ -33,6 +33,8 @@ package "ECサイト" as target_system {
         # user_id [FK]
         recipe_naem
         recipe_image
+        explan
+        point
         # category_id [FK]
         time
         processed_flag
@@ -54,6 +56,7 @@ package "ECサイト" as target_system {
         + datail_id [PK]
         --
         # recipe_id [FK]
+        procedure
         detail_image
         detail_text
     }
