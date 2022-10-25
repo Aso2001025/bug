@@ -105,7 +105,6 @@ package "ECサイト" as target_system {
 user       ||-r-o{    recipe
 recipe     ||-r-|{    recipe_detail
 recipe     ||-u-|{    recipe_material
-recipe     }o---||    recipe_tag
 
 user       ||-r-o{    comment
 user       ||---o{    keep
@@ -113,6 +112,8 @@ user       ||---o|    good
 recipe     ||-l-o{    comment
 recipe     ||---o{    keep
 recipe     ||---o{    good
+recipe     }o---||    recipe_tag
+tag        }o-l-||    recipe_tag
 
 @enduml
 ```
