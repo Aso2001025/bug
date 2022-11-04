@@ -22,8 +22,6 @@ package "ECサイト" as target_system {
         icon
         mail
         password
-        lebel
-        birthday
         reg_date
     }
     
@@ -36,11 +34,8 @@ package "ECサイト" as target_system {
         explan
         point
         # category_id [FK]
-        time
         processed_flag
-        good
         browes
-        keep
         reg_date
     }
     
