@@ -37,6 +37,7 @@ package "ECサイト" as target_system {
         processed_flag
         browes
         reg_date
+        del_flag
     }
     
     entity "レシピ材料" as recipe_material  <recipe_material> <<T,TRANSACTION_MARK_COLOR>> {
@@ -45,6 +46,7 @@ package "ECサイト" as target_system {
         # recipe_id [FK]
         material_name
         amount
+        del_flag
     }
     
     entity "レシピ詳細" as recipe_detail <recipe_detail> <<T,TRANSACTION_MARK_COLOR>> {
@@ -54,6 +56,7 @@ package "ECサイト" as target_system {
         procedure
         detail_image
         detail_text
+        del_flag
     }
     
      entity "タグ" as tag <tag> <<T,TRANSACTION_MARK_COLOR>> {
@@ -67,6 +70,7 @@ package "ECサイト" as target_system {
         + recipe_id [PK][FK]
         + tag_id [PK][FK]
         --
+        del_flag
         
     }
     
@@ -85,6 +89,7 @@ package "ECサイト" as target_system {
         user_id [FK]
         recipe_id [FK]
         reg_date
+        del_flag
     }
     
     entity "保存" as keep <keep> <<M,MASTER_MARK_COLOR>> {
@@ -93,6 +98,7 @@ package "ECサイト" as target_system {
         user_id [FK]
         recipe_id [FK]
         reg_date
+        del_flag
     }
     
   }
