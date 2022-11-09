@@ -15,7 +15,7 @@ package "ECサイト" as target_system {
       マスターテーブルを M、トランザクションを T などで表記
       １文字なら "主" とか "従" まど日本語でも記載可能
      '/
-    entity "ユーザー" as user <user> <<M,MASTER_MARK_COLOR>> {
+    entity "ユーザー" as users <users> <<M,MASTER_MARK_COLOR>> {
         + user_id [PK]
         --
         name
@@ -25,7 +25,7 @@ package "ECサイト" as target_system {
         reg_date_on
     }
     
-    entity "レシピ" as recipe <recipe> <<T,TRANSACTION_MARK_COLOR>> {
+    entity "レシピ" as recipes <recipes> <<T,TRANSACTION_MARK_COLOR>> {
         + recipe_id [PK]
         --
         # user_id [FK]
@@ -33,13 +33,13 @@ package "ECサイト" as target_system {
         image
         explan
         point
-        processed_flag
+        image_blurred
         browes
         reg_date_on
         deleted_flag
     }
     
-    entity "レシピ材料" as recipe_material  <recipe_material> <<T,TRANSACTION_MARK_COLOR>> {
+    entity "レシピ材料" as recipe_materials  <recipe_materials> <<T,TRANSACTION_MARK_COLOR>> {
         + material_id[PK]
         --
         # recipe_id [FK]
@@ -47,8 +47,8 @@ package "ECサイト" as target_system {
         amount
     }
     
-    entity "レシピ詳細" as recipe_detail <recipe_detail> <<T,TRANSACTION_MARK_COLOR>> {
-        + datail_id [PK]
+    entity "レシピ手順" as recipe_procedures <recipe_procedures> <<T,TRANSACTION_MARK_COLOR>> {
+        + procedure_id [PK]
         --
         # recipe_id [FK]
         image
@@ -56,14 +56,14 @@ package "ECサイト" as target_system {
         deleted_flag
     }
     
-     entity "タグ" as tag <tag> <<T,TRANSACTION_MARK_COLOR>> {
+     entity "タグ" as tags <tags> <<T,TRANSACTION_MARK_COLOR>> {
         + tag_id [PK]
         --
         name
         deleted_flag
     }
     
-     entity "レシピタグ" as recipe_tag <recipe_tag> <<T,TRANSACTION_MARK_COLOR>> {
+     entity "レシピタグ" as recipe_tags <recipe_tags> <<T,TRANSACTION_MARK_COLOR>> {
         + recipe_id [PK][FK]
         + tag_id [PK][FK]
         --
@@ -71,7 +71,7 @@ package "ECサイト" as target_system {
         
     }
     
-    entity "コメント" as comment <comment> <<T,TRANSACTION_MARK_COLOR>> {
+    entity "コメント" as comments <comments> <<T,TRANSACTION_MARK_COLOR>> {
         + comment_id [PK]
         --
         user_id [FK]
@@ -93,15 +93,15 @@ package "ECサイト" as target_system {
     
   }
   
-user       ||-r-o{    recipe
-recipe     ||-r-|{    recipe_detail
-recipe     ||-u-|{    recipe_material
-recipe     }o---||    recipe_tag
-recipe_tag }o---||    tag
-user       ||-r-o{    comment
-user       ||---o|    good
-recipe     ||-l-o{    comment
-recipe     ||---o{    good
+users       ||-r-o{    recipes
+recipes     ||-r-|{    recipe_procedures
+recipes     ||-u-|{    recipe_materials
+recipes     }o---||    recipe_tags
+recipe_tags }o---||    tags
+users       ||-r-o{    comments
+users       ||---o|    favorites
+recipes     ||-l-o{    comments
+recipes     ||---o{    favorites
 
 
 @enduml
