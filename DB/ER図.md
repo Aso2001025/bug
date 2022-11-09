@@ -18,25 +18,24 @@ package "ECサイト" as target_system {
     entity "ユーザー" as user <user> <<M,MASTER_MARK_COLOR>> {
         + user_id [PK]
         --
-        user_name
+        name
         icon
         mail
         password
-        reg_date
+        reg_date_on
     }
     
     entity "レシピ" as recipe <recipe> <<T,TRANSACTION_MARK_COLOR>> {
         + recipe_id [PK]
         --
         # user_id [FK]
-        recipe_naem
-        recipe_image
+        name
+        image
         explan
         point
-        # category_id [FK]
         processed_flag
         browes
-        reg_date
+        reg_date_on
         del_flag
     }
     
@@ -44,7 +43,7 @@ package "ECサイト" as target_system {
         + material_id[PK]
         --
         # recipe_id [FK]
-        material_name
+        name
         amount
         del_flag
     }
@@ -53,16 +52,15 @@ package "ECサイト" as target_system {
         + datail_id [PK]
         --
         # recipe_id [FK]
-        procedure
-        detail_image
-        detail_text
+        image
+        context
         del_flag
     }
     
      entity "タグ" as tag <tag> <<T,TRANSACTION_MARK_COLOR>> {
         + tag_id [PK]
         --
-        tag_name
+        name
         
     }
     
@@ -79,8 +77,9 @@ package "ECサイト" as target_system {
         --
         user_id [FK]
         recipe_id [FK]
-        text
-        reg_date
+        context
+        reg_date_on
+        del_flag
     }
     
     entity "いいね" as good <good> <<M,MASTER_MARK_COLOR>> {
@@ -97,7 +96,7 @@ package "ECサイト" as target_system {
         --
         user_id [FK]
         recipe_id [FK]
-        reg_date
+        reg_date_on
         del_flag
     }
     
