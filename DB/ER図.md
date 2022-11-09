@@ -36,7 +36,7 @@ package "ECサイト" as target_system {
         processed_flag
         browes
         reg_date_on
-        del_flag
+        deleted_flag
     }
     
     entity "レシピ材料" as recipe_material  <recipe_material> <<T,TRANSACTION_MARK_COLOR>> {
@@ -45,7 +45,6 @@ package "ECサイト" as target_system {
         # recipe_id [FK]
         name
         amount
-        del_flag
     }
     
     entity "レシピ詳細" as recipe_detail <recipe_detail> <<T,TRANSACTION_MARK_COLOR>> {
@@ -54,21 +53,21 @@ package "ECサイト" as target_system {
         # recipe_id [FK]
         image
         context
-        del_flag
+        deleted_flag
     }
     
      entity "タグ" as tag <tag> <<T,TRANSACTION_MARK_COLOR>> {
         + tag_id [PK]
         --
         name
-        
+        deleted_flag
     }
     
      entity "レシピタグ" as recipe_tag <recipe_tag> <<T,TRANSACTION_MARK_COLOR>> {
         + recipe_id [PK][FK]
         + tag_id [PK][FK]
         --
-        del_flag
+        deleted_flag
         
     }
     
@@ -79,26 +78,18 @@ package "ECサイト" as target_system {
         recipe_id [FK]
         context
         reg_date_on
-        del_flag
+        deleted_flag
     }
     
-    entity "いいね" as good <good> <<M,MASTER_MARK_COLOR>> {
-        + good_id [PK]
+    entity "お気に入り" as  <favorites> <<M,MASTER_MARK_COLOR>> {
+        + favorite_id [PK]
         --
         user_id [FK]
         recipe_id [FK]
         reg_date
-        del_flag
     }
     
-    entity "保存" as keep <keep> <<M,MASTER_MARK_COLOR>> {
-        + keep_id [PK]
-        --
-        user_id [FK]
-        recipe_id [FK]
-        reg_date_on
-        del_flag
-    }
+    
     
   }
   
@@ -108,10 +99,8 @@ recipe     ||-u-|{    recipe_material
 recipe     }o---||    recipe_tag
 recipe_tag }o---||    tag
 user       ||-r-o{    comment
-user       ||---o{    keep
 user       ||---o|    good
 recipe     ||-l-o{    comment
-recipe     ||---o{    keep
 recipe     ||---o{    good
 
 
