@@ -81,7 +81,7 @@ package "ECサイト" as target_system {
         deleted_flag
     }
     
-    entity "お気に入り" as  <favorites> <<M,MASTER_MARK_COLOR>> {
+    entity "お気に入り" as favorites <favorites> <<M,MASTER_MARK_COLOR>> {
         + favorite_id [PK]
         --
         user_id [FK]
